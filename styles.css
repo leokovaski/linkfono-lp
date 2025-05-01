@@ -93,6 +93,13 @@ p {
   margin-right: auto;
 }
 
+/* Estilo do logo com SVG */
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero p {
   max-width: 700px;
   margin-left: auto;
@@ -647,5 +654,16 @@ footer p {
   
   .testimonial-grid {
       grid-template-columns: 1fr;
+  }
+  
+  /* Estilo do logo em dispositivos móveis */
+  .logo-title {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-svg {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
