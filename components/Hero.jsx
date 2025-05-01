@@ -15,7 +15,7 @@ const Hero = () => {
         <h1>LinkFono</h1>
         <h1>Revolucione sua Prática Fonoaudiológica com IA</h1>
         <p className="subheading">
-          A plataforma completo para fonoaudiólogos que integra gestão, prontuário 
+          A primeira plataforma completa para fonoaudiólogos que integra gestão, prontuário 
           eletrônico com IA e integração via WhatsApp. Tudo que você precisa em um só lugar.
         </p>
         <a href="#lead-form" className="cta-button" onClick={scrollToForm}>
