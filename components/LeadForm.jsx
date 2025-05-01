@@ -13,6 +13,7 @@ const LeadForm = () => {
     utm_content: '',
     fbclid: '',
     gclid: '',
+    _fbc: '',
     referrer: '',
     user_agent: '',
     ip_address: ''
@@ -34,9 +35,18 @@ const LeadForm = () => {
       gclid: urlParams.get('gclid') || ''
     };
     
+    // Captura o cookie _fbc (Facebook Click ID)
+    const getFBC = () => {
+      const fbc = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('_fbc='));
+      return fbc ? fbc.split('=')[1] : '';
+    };
+    
     // Captura referrer, user agent
     const referrer = document.referrer || '';
     const user_agent = navigator.userAgent || '';
+    const _fbc = getFBC();
     
     // Obtém IP do usuário via API externa (será capturado de forma assíncrona)
     fetch('https://api.ipify.org?format=json')
@@ -55,6 +65,7 @@ const LeadForm = () => {
     setFormData(prevData => ({
       ...prevData,
       ...utmParams,
+      _fbc,
       referrer,
       user_agent
     }));
@@ -148,7 +159,7 @@ const LeadForm = () => {
   return (
     <section id="lead-form" className="lead-form">
       <div className="container">
-        <h2>Seja um dos Primeiros a Transformar sua Prática</h2>
+        <h2>Garanta Acesso Antecipado</h2>
         <p>
           O LinkFono está em fase final de testes. Inscreva-se agora para garantir 
           acesso antecipado e transformar a gestão da sua clínica antes de todos.
@@ -181,7 +192,7 @@ const LeadForm = () => {
           />
           {error && <p className="error-message">{error}</p>}
           <button type="submit" className="cta-button">
-            Quero Transformar Minha Prática Agora!
+          Garantir Acesso Antecipado
           </button>
         </form>
         
